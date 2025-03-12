@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import { loadAndInstantiateWasm } from "@/utils/wasmHelper";
+
 export default {
   name: "HelloWorld",
   props: {
@@ -27,10 +29,13 @@ export default {
      * @returns {Promise<void>}
      */
     async loadWasm() {
-      // const wasm = await import("./realse.wasm");
-      const response = await fetch("/wasms/release.wasm");
-      const wasmModule = await WebAssembly.instantiateStreaming(response);
-      // this.wasmInstance = wasmModule.instance;
+      // const response = await fetch("/wasms/release.wasm");
+      // const wasmModule = await WebAssembly.instantiateStreaming(response);
+      if (this.wasmInstance) {
+        return this.wasmInstance;
+      }
+      const wasmModule = await loadAndInstantiateWasm("/wasms/release.wasm");
+      this.wasmInstance = wasmModule.instance;
       return wasmModule.instance;
     },
     async runWasmFunction() {
