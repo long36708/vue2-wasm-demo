@@ -1,24 +1,7 @@
 # vue2-wasm-demo
 
-## Project setup
-```
-npm install
-```
+## assemblyscript
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+https://www.assemblyscript.org/introduction.html
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+需要在package.json中指定 type: "module"
