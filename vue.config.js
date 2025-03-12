@@ -1,10 +1,5 @@
 const { defineConfig } = require("@vue/cli-service");
 module.exports = defineConfig({
   transpileDependencies: true,
-  // devServer: {
-  //   overlay: {
-  //     warnings: false,
-  //     errors: false,
-  //   },
-  // },
+  lintOnSave: process.env.NODE_ENV !== "production",
 });
